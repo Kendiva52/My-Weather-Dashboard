@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Navbar from "./Navbar"; // ✅ Make sure you have this file created
+import Navbar from "./Navbar"; 
 import SearchBar from "./SearchBar";
 
 export default function Homepage() {
