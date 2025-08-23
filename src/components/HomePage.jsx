@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Navbar from "./Navbar"; 
 import SearchBar from "./SearchBar";
 import WeatherCard from "./WeatherCard";
 import ErrorMessage from "./ErrorMessage";
