@@ -11,9 +11,9 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
-          <a href="#" className="text-white hover:text-gray-200">Home</a>
-          <a href="#" className="text-white hover:text-gray-200">About</a>
-          <a href="#" className="text-white hover:text-gray-200">Contact</a>
+          <a href="#" className="text-white hover:text-gray-400">Home</a>
+          <a href="#" className="text-white hover:text-gray-400">About</a>
+          <a href="#" className="text-white hover:text-gray-400">Contact</a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -41,10 +41,10 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="md:hidden bg-blue-100 px-10 py-2 space-y-2 text-right">
-          <a href="#" className="block text-gray hover:text-gray-500">Home</a>
-          <a href="#" className="block text-white hover:text-gray-500">About</a>
-          <a href="#" className="block text-white hover:text-gray-500">Contact</a>
+        <div className="md:hidden bg-gray-100 px-10 py-2 space-y-2 text-right">
+          <a href="#" className="block text-ash hover:text-gray-500">Home</a>
+          <a href="#" className="block text-ash hover:text-gray-500">About</a>
+          <a href="#" className="block text-ash hover:text-gray-500">Contact</a>
         </div>
       )}
     </nav>
