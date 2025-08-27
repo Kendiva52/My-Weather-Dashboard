@@ -4,18 +4,21 @@ import SearchBar from "./SearchBar";
 import WeatherCard from "./WeatherCard";
 import ErrorMessage from "./ErrorMessage";
 import Forecast from "./Forecast";
+import Loader from "./Loader";
 import { processForecastData } from "../utils/processForecast";
 
 export default function Homepage() {
   const [weather, setWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const fetchWeather = async (city) => {
     try {
       setError("");
       setWeather(null);
       setForecast(null);
+      setLoading(true);
 
       const key = import.meta.env.VITE_OPENWEATHER_API_KEY;
       const weatherUrl = import.meta.env.VITE_OPENWEATHER_API_URL;
@@ -47,6 +50,8 @@ export default function Homepage() {
       }
     } catch (err) {
       setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 

@@ -11,7 +11,7 @@ export default function Forecast({ forecastData }) {
         5-Day Forecast
       </h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-8">
         {forecastData.map((day, index) => (
           <div
             key={index}
