@@ -70,9 +70,14 @@ export default function Homepage() {
         <SearchBar onSearch={fetchWeather} />
 
         <ErrorMessage message={error} />
+        
+        {loading &&(<div className="flex justify-center my-6">
+          <Loader />
+        </div>
+      )}
 
-        {weather && <WeatherCard weatherData={weather} />}
-        {forecast && <Forecast forecastData={forecast} />}
+        {!loading && weather && <WeatherCard weatherData={weather} />}
+        {!loading && forecast && <Forecast forecastData={forecast} />}
       </div>
     </div>
   );
