@@ -11,61 +11,65 @@ export default function Homepage() {
   const [forecast, setForecast] = useState(null);
   const [error, setError] = useState("");
 
-const fetchWeather = async (city) => {
-  try {
-    setError("");
-    setWeather(null);
-    setForecast(null);
+  const fetchWeather = async (city) => {
+    try {
+      setError("");
+      setWeather(null);
+      setForecast(null);
 
-    // 🔎 Debug logs
-    console.log("ENV KEY:", import.meta.env.VITE_OPENWEATHER_API_KEY);
-    console.log("Weather URL:", import.meta.env.VITE_OPENWEATHER_API_URL);
-    console.log("Forecast URL:", import.meta.env.VITE_OPENWEATHER_FORECAST_URL);
+      const key = import.meta.env.VITE_OPENWEATHER_API_KEY;
+      const weatherUrl = import.meta.env.VITE_OPENWEATHER_API_URL;
+      const forecastUrl = import.meta.env.VITE_OPENWEATHER_FORECAST_URL;
 
-    const key = import.meta.env.VITE_OPENWEATHER_API_KEY;
-    const weatherUrl = import.meta.env.VITE_OPENWEATHER_API_URL;
-    const forecastUrl = import.meta.env.VITE_OPENWEATHER_FORECAST_URL;
+      // ✅ Fetch current weather
+      const weatherRes = await fetch(
+        `${weatherUrl}?q=${city}&appid=${key}&units=metric`
+      );
 
-    // ✅ Fetch current weather
-    const weatherRes = await fetch(
-      `${weatherUrl}?q=${city}&appid=${key}&units=metric`
-    );
+      if (!weatherRes.ok) {
+        throw new Error("City not recognized. Please try again.");
+      }
 
-    if (!weatherRes.ok) {
-      throw new Error("City not recognized. Please try again.");
+      const weatherData = await weatherRes.json();
+      setWeather(weatherData);
+
+      // ✅ Fetch forecast
+      const forecastRes = await fetch(
+        `${forecastUrl}?q=${city}&appid=${key}&units=metric`
+      );
+
+      if (forecastRes.ok) {
+        const forecastData = await forecastRes.json();
+        const processed = processForecastData(forecastData.list);
+        setForecast(processed);
+      } else {
+        throw new Error("Forecast could not be loaded.");
+      }
+    } catch (err) {
+      setError(err.message);
     }
-
-    const weatherData = await weatherRes.json();
-    setWeather(weatherData);
-
-    // ✅ Fetch forecast
-    const forecastRes = await fetch(
-      `${forecastUrl}?q=${city}&appid=${key}&units=metric`
-    );
-
-    if (forecastRes.ok) {
-      const forecastData = await forecastRes.json();
-      const processed = processForecastData(forecastData.list);
-      setForecast(processed);
-    } else {
-      throw new Error("Forecast could not be loaded.");
-    }
-  } catch (err) {
-    setError(err.message);
-  }
-};
+  };
 
   return (
-    <div className="text-center p-4">
-      <h1 className="text-3xl text-blue-500 mb-4 mt-20 shadow-md">Weather Dashboard</h1>
-      <p>Search for the current weather in any city worldwide.</p>
+    <div
+      className="min-h-screen bg-cover bg-center flex flex-col items-center"
+      style={{ backgroundImage: "url('/image/weather-bg.jpg')" }}
+    >
+      <Navbar />
 
-      <SearchBar onSearch={fetchWeather} />
+      {/* Card container */}
+      <div className="bg-white bg-opacity-80 rounded-2xl shadow-lg p-6 mt-40 w-full max-w-sm sm:max-w-md text-center">
+        <h1 className="text-2xl font-bold text-blue-600 mb-4">Weather Dashboard</h1>
+        <p className="text-sm sm:text-base mb-4">Search for the current weather in any city worldwide.</p>
 
-      <ErrorMessage message={error} />
+        <SearchBar onSearch={fetchWeather} />
 
-      {weather && <WeatherCard weatherData={weather} />}
-      {forecast && <Forecast forecastData={forecast} />}
+        <ErrorMessage message={error} />
+
+        {weather && <WeatherCard weatherData={weather} />}
+        {forecast && <Forecast forecastData={forecast} />}
+      </div>
     </div>
   );
 }
+

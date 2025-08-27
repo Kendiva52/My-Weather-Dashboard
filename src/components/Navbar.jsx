@@ -4,10 +4,10 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-blue-600 fixed top-0 left-0 w-full shadow-md z-50">
+    <nav className=" fixed top-0 left-0 w-full shadow-md z-50">
       <div className="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
         {/* Logo */}
-        <h1 className="text-gray-200 font-bold text-xl"> 🌦️ Weather Dashboard</h1>
+        <h1 className="text-gray-500 font-bold text-xl"> 🌦️ Weather Dashboard</h1>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
@@ -41,7 +41,7 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="md:hidden bg-gray-100 px-10 py-2 space-y-2 text-right">
+        <div className="md:hidden  px-10 py-2 space-y-2 text-right">
           <a href="#" className="block text-ash hover:text-gray-500">Home</a>
           <a href="#" className="block text-ash hover:text-gray-500">About</a>
           <a href="#" className="block text-ash hover:text-gray-500">Contact</a>
