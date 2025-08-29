@@ -1,5 +1,5 @@
 export function processForecastData(list) {
-  // OpenWeather gives 3-hour intervals; we'll pick one per day (e.g., midday)
+
   const daily = {};
 
   list.forEach((item) => {

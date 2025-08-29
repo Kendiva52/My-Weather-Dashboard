@@ -108,7 +108,7 @@ export default function Homepage() {
             onClick={() => addcity(weather.name)}
             className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
           >
-           + Save City
+           Save City
           </button>
         </div>
       )}      
@@ -120,4 +120,3 @@ export default function Homepage() {
     </div>
   );
 }
-

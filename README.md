@@ -1,30 +1,30 @@
-# 🌤️ My Weather Dashboard
+# My Weather Dashboard
 
 A modern, responsive weather application built with React.js, Vite, Tailwind CSS, and the OpenWeather API. It allows users to search for any city and instantly view real-time weather conditions, with a clean and intuitive interface.
 
 ---
 
-## ✨ Features
+## Features
 
-- **🔍 City Search** – Get instant weather details for any city worldwide.  
-- **🌡️ Unit Toggle** – Switch between **°C** and **°F** effortlessly.  
-- **📍 Geolocation Support** – Automatically detect and display your local weather.  
-- **🕒 Real-Time Updates** – Always see the latest weather data.  
-- **💾 Saved Searches** – Your recent searches are stored locally for quick access.  
-- **📱 Fully Responsive** – Works beautifully on desktop, tablet, and mobile devices.  
+City Search – Get instant weather details for any city worldwide.  
+Unit Toggle – Switch between °C and °F effortlessly.  
+Geolocation Support– Automatically detect and display your local weather.  
+Real-Time Updates – Always see the latest weather data.  
+saved Searches– Your recent searches are stored locally for quick access.  
+Fully Responsive – Works beautifully on desktop, tablet, and mobile devices.  
 
 ---
 
-## 🛠️ Tech Stack
+Tech Stack
 
-- **Frontend Framework:** [React](https://react.dev/) (via [Vite](https://vitejs.dev/))
-- **Styling:** [Tailwind CSS v3](https://tailwindcss.com/)
-- **API:** [OpenWeather API](https://openweathermap.org/api)
+Frontend Framework:[React](https://react.dev/) (via [Vite](https://vitejs.dev/))
+Styling: [Tailwind CSS v3](https://tailwindcss.com/)
+API:[OpenWeather API](https://openweathermap.org/api)
 - **Package Manager:** npm
 
 ---
 
-## 📦 Installation & Setup
+## Installation & Setup
 
 ```bash
 # 1. Clone the repository
@@ -39,14 +39,14 @@ npm install
 # 4. Run the development server
 npm run dev
 
-📌 Future Improvements
+Future Improvements
 
-🌐 Add user location-based weather using Geolocation API
+Add user location-based weather using Geolocation API
 
-📊 Display interactive charts for temperature trends
+Display interactive charts for temperature trends
 
-👨‍💻 Author
+Author
 
 Kenele Okorodudu
 
-🌟 Frontend Developer
+Frontend Developer

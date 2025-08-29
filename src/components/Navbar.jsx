@@ -8,7 +8,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 w-full shadow-md z-50">
       <div className="max-w-6xl mx-auto px-4 flex justify-between items-center h-8">
         {/* Logo */}
-        <h1 className="text-gray-500 font-bold text-xl"> 🌦️ Weather Dashboard</h1>
+        <h1 className="text-gray-800 font-bold text-xl"> 🌦️ Weather Dashboard</h1>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">

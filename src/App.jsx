@@ -1,5 +1,5 @@
 import React from 'react';
-import Homepage from "./components/Homepage";
+import Homepage from './components/Homepage';
 import Navbar from './components/Navbar';
 import FooterPage from './components/FooterPage';
 import About from './pages/About';
@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
     <div className="flex flex-col min-h-screen">
-      {/* Navbar at top */}
+    
       <Navbar />
 
       {/* Main content */}
@@ -22,7 +22,7 @@ function App() {
           </Routes>
         </main>
 
-      {/* Footer pinned at bottom */}
+     
       <FooterPage />
     </div>
     </Router>
