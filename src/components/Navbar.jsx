@@ -1,19 +1,20 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className=" fixed top-0 left-0 w-full shadow-md z-50">
-      <div className="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
+    <nav className="fixed top-0 left-0 w-full shadow-md z-50">
+      <div className="max-w-6xl mx-auto px-4 flex justify-between items-center h-8">
         {/* Logo */}
         <h1 className="text-gray-500 font-bold text-xl"> 🌦️ Weather Dashboard</h1>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
-          <a href="#" className="text-white hover:text-gray-400">Home</a>
-          <a href="#" className="text-white hover:text-gray-400">About</a>
-          <a href="#" className="text-white hover:text-gray-400">Contact</a>
+          <Link to="/" className="text-white hover:text-gray-300">Home</Link>
+          <Link to="/about" className="text-white hover:text-gray-300">About</Link>
+          <Link to="/contact" className="text-white hover:text-gray-300">Contact</Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -21,32 +22,21 @@ export default function Navbar() {
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden flex flex-col justify-between w-6 h-5 focus:outline-none"
         >
-          <span
-            className={`h-1 bg-white rounded transition-all duration-300  ${
-              isOpen ? "rotate-45 translate-y-2 " : ""
-            }`}
-          ></span>
-          <span
-            className={`h-1 bg-white rounded transition-all duration-300 ${
-              isOpen ? "opacity-0" : ""
-            }`}
-          ></span>
-          <span
-            className={`h-1 bg-white rounded transition-all duration-300 ${
-              isOpen ? "-rotate-45 -translate-y-2" : ""
-            }`}
-          ></span>
+          <span className={`h-1 bg-white rounded transition-all duration-300 ${isOpen ? "rotate-45 translate-y-2" : ""}`}></span>
+          <span className={`h-1 bg-white rounded transition-all duration-300 ${isOpen ? "opacity-0" : ""}`}></span>
+          <span className={`h-1 bg-white rounded transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2" : ""}`}></span>
         </button>
       </div>
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="md:hidden  px-10 py-2 space-y-2 text-right">
-          <a href="#" className="block text-ash hover:text-gray-500">Home</a>
-          <a href="#" className="block text-ash hover:text-gray-500">About</a>
-          <a href="#" className="block text-ash hover:text-gray-500">Contact</a>
+        <div className="md:hidden px-10 py-2 space-y-2 text-right ">
+          <Link to="/" className="block text-gray hover:text-gray-300">Home</Link>
+          <Link to="/about" className="block text-gray hover:text-gray-300">About</Link>
+          <Link to="/contact" className="block text-gray hover:text-gray-300">Contact</Link>
         </div>
       )}
     </nav>
   );
 }
+

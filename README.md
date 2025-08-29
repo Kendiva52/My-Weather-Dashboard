@@ -1,7 +1,6 @@
 # 🌤️ My Weather Dashboard
 
-A modern, responsive weather dashboard built with **React**, **Vite**, and **Tailwind CSS v3**.  
-It allows users to search for any city and instantly view real-time weather conditions, with a clean and intuitive interface.
+A modern, responsive weather application built with React.js, Vite, Tailwind CSS, and the OpenWeather API. It allows users to search for any city and instantly view real-time weather conditions, with a clean and intuitive interface.
 
 ---
 
@@ -13,12 +12,6 @@ It allows users to search for any city and instantly view real-time weather cond
 - **🕒 Real-Time Updates** – Always see the latest weather data.  
 - **💾 Saved Searches** – Your recent searches are stored locally for quick access.  
 - **📱 Fully Responsive** – Works beautifully on desktop, tablet, and mobile devices.  
-
----
-
-## 🖼️ Screenshots
-
-*(Add screenshots of your landing page, dashboard, and mobile view here)*
 
 ---
 
@@ -45,3 +38,15 @@ npm install
 
 # 4. Run the development server
 npm run dev
+
+📌 Future Improvements
+
+🌐 Add user location-based weather using Geolocation API
+
+📊 Display interactive charts for temperature trends
+
+👨‍💻 Author
+
+Kenele Okorodudu
+
+🌟 Frontend Developer

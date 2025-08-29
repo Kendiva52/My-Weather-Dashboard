@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./Navbar"; 
 import SearchBar from "./SearchBar";
 import WeatherCard from "./WeatherCard";
 import ErrorMessage from "./ErrorMessage";
 import Forecast from "./Forecast";
 import Loader from "./Loader";
+import SavedCities from "./SavedCities";
 import { processForecastData } from "../utils/processForecast";
 
 export default function Homepage() {
@@ -12,6 +13,20 @@ export default function Homepage() {
   const [forecast, setForecast] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [savedcities, setSavedCities] = useState([]);
+
+  // load saved cities on initial render//
+  useEffect(() => {
+    const storedCities = JSON.parse(localStorage.getItem("savedCities")) || [];
+    setSavedCities(storedCities);
+    }, []);
+
+    // save cities to local storage//
+    useEffect(() => {
+      if (savedcities.length > 0){
+      localStorage.setItem("savedCities", JSON.stringify(savedcities));
+      }
+    }, [savedcities]);
 
   const fetchWeather = async (city) => {
     try {
@@ -55,6 +70,16 @@ export default function Homepage() {
     }
   };
 
+  const addcity = (city) => {
+    if (city && !savedcities.includes(city)) {
+      setSavedCities([...savedcities, city]);
+    }
+  };
+
+  const removecity = (city) => {
+    setSavedCities(savedcities.filter((c) => c !== city));
+  };
+
   return (
     <div
       className="min-h-screen bg-cover bg-center flex flex-col items-center"
@@ -76,8 +101,21 @@ export default function Homepage() {
         </div>
       )}
 
-        {!loading && weather && <WeatherCard weatherData={weather} />}
-        {!loading && forecast && <Forecast forecastData={forecast} />}
+      {!loading && weather && (
+        <div>
+          <WeatherCard weatherData={weather} />
+          <button
+            onClick={() => addcity(weather.name)}
+            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+          >
+           + Save City
+          </button>
+        </div>
+      )}      
+
+      {!loading && forecast && <Forecast forecastData={forecast} />}
+
+      <SavedCities cities={savedcities} onSearch={fetchWeather} onRemove={removecity} />
       </div>
     </div>
   );
