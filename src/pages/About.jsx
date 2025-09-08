@@ -4,7 +4,7 @@ export default function About() {
       className="min-h-screen bg-cover bg-center flex flex-col items-center px-6 py-12"
       style={{ backgroundImage: "url('/image/weather-bg.jpg')" }}
     >
-       <div className="bg-white bg-opacity-90 rounded-2xl shadow-lg p-8 w-full mt-14 max-w-3xl">
+       <div className="bg-white bg-opacity-90 rounded-2xl shadow-lg p-8 w-full mt-24 max-w-3xl">
       {/* Title */}
       <h1 className="text-3xl font-bold text-blue-600 mb-4 text-center">
         About
